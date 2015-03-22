@@ -6,18 +6,23 @@ This is a website using SASS, Compass, Susy, Compass-Normalize, Breakpoint.
 so in order (assuming you have none of these but do have ruby installed):
 
 SASS
+	
 	sudo gem install sass
 
 Compass
+	
 	sudo gem install compass
 
 Susy
+	
 	sudo gem install susy
 
 Compass Normalize
+	
 	sudo gem install compass-normalize
 
 Breakpoint
+	
 	sudo gem install breakpoint
 
 
