@@ -3,4 +3,179 @@
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
-@import "compass/reset";
+@import "normalize";
+@import "compass";
+@import "susy";
+@import "breakpoint";
+
+
+//Variables
+
+//colors
+$darkblue: rgba(0,46,83,1.0);
+$lightgreen: rgba(123,203,191,1.0);
+$silvergrey: rgba(230,245,255,1.0);
+$coral: rgba(238,84,59,1.0);
+$darkgreen: rgba(1,126,94,1.0);
+
+// grid Setup 
+$susy: (
+	global-box-sizing: border-box,
+	use-custom: (rem: true)
+);
+
+@include border-box-sizing;
+
+//body setup
+body{
+	font-family: "proxima-nova", sans-serif;
+	font-size:16px; //just to be sure
+
+}
+
+// layout styles
+.container{
+	@include container;
+	@include clearfix;
+	padding-top:90px; // to account for the menu + 10px buffer
+}
+// menu styles
+#logo{
+	width:4.75rem;
+	height:4.75rem;
+}
+header{
+
+	width:100%;
+	position:fixed;
+	background-color:rgba(255,255,255,0.9);
+	z-index:999;
+	height:80px;
+	text-align:center;
+	border-bottom: 1px solid rgba(0,46,83,0.45);
+}
+nav{
+	margin-top:-0.8rem;
+}
+nav > ul{
+	list-style:none;
+	width: span(full);
+	padding:0;
+}
+nav > ul li{
+	display:inline-block;
+	padding-left: gutter(10);
+	padding-right:gutter(10);
+	vertical-align:middle;
+}
+nav > ul li a{
+	color:$lightgreen;
+	text-decoration:none;
+}
+
+//background image styles
+img.bg {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+// section styles
+
+//landing "page" styles
+#landing{
+	height:600px;
+} 
+
+.landingDate{
+	@include span(6 of 12);
+	font-size:3rem;
+	color:$coral;
+	font-weight:100;
+	margin-left:span(5.35 of 12);
+	text-shadow:2px 2px 2px $darkblue;
+}
+//letteringJS styles for Landing Title
+.landingTitle{
+	@include span(7 of 12);
+	font-size:7rem;
+	color:$coral;
+	text-shadow:2px 2px 2px $darkblue;
+	font-weight:300;
+	margin-left:span(1 of 12);
+	margin-top:10rem;
+	margin-bottom: -50px;
+}
+.char2{
+	margin-left:5px;
+}
+.char4{
+	margin-left:-3px;
+
+}
+.char5{
+	margin-left:-6px;
+}
+.char6{
+	margin-left:-5px;
+}
+.char9{
+	margin-left:-6px;
+}
+.char10{
+	margin-left:-8px;
+}
+.char12{
+	margin-left:-2px;
+}
+.char13{
+	margin-left:-4px;
+}
+.char14{
+	margin-left:-3px;
+}
+
+//festivities page
+#festivities{
+	height:800px;
+	background-color:$silvergrey;
+	padding-top:80px;
+}
+.venueTitle, .eventsTitle, .foodTitle{
+	@include span(full);
+	padding-left: 1rem;
+}
+.venueContent, .eventsContent, .foodContent{
+	@include span(8 of 12);
+	margin-left: span(1 of 12);
+}
+
+#seattle{
+	min-height:800px;
+	background-color:$silvergrey;
+}
+#registry{
+	height:800px;
+	background-color:green;
+}
+#photos{
+	height:800px;
+	background-color:yellow;
+}
