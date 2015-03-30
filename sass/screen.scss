@@ -24,7 +24,7 @@ $coral: rgba(238,84,59,1.0);
 $darkblue: rgba(0,46,83,1.0);
 $darkgreen: rgba(1,126,94,1.0);
 $lightgreen: rgba(123,203,191,1.0);
-$offwhite: rgba(245,244,244, 1.0);
+$offwhite: rgba(250,250,250, 1.0);
 //$offwhite: rgba(255,255,248, 1.0);
 $silvergrey: rgba(230,245,255,1.0);
 
@@ -48,16 +48,15 @@ a {
 	text-decoration: none;
 	@include selectanimation(all 0.3s ease-in);
 	&:hover {
-		color:lighten($darkblue, 5%);
+		color:#c8270d;
 	}
 }
 
 h2 {
-	font-size: 2rem;
-	font-weight: 300;
+	font-size: 2.1rem;
+	font-weight: 200;
 	letter-spacing: 0.05em;
 	margin-bottom: 0.3rem;
-	text-transform: uppercase;
 }
 
 // layout styles
