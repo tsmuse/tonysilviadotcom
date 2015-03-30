@@ -64,7 +64,11 @@ h2 {
 .container{
 	@include container;
 	@include clearfix;
-	padding-top:90px; // to account for the menu + 10px buffer
+	padding-top:90px; // to account for the menu + landing page + 10px buffer
+	position:relative;
+	top:100vh;
+	z-index:100;
+	background-color:$offwhite;
 }
 // menu styles
 #logo{
@@ -133,10 +137,12 @@ img.bg {
 //landing "page" styles
 #landing{
 	height:600px;
+	position:fixed;
+	z-index:1;
 } 
 
 .landingDate{
-	@include span(6 of 12);
+	@include span(8 of 12);
 	font-size:3rem;
 	color:$coral;
 	font-weight:100;
@@ -145,11 +151,11 @@ img.bg {
 }
 //letteringJS styles for Landing Title
 .landingTitle{
-	@include span(7 of 12);
+	@include span(full);
 	font-size:7rem;
 	color:$coral;
 	font-weight:300;
-	margin-left:span(1 of 12);
+	padding-left:span(1 of 12);
 	margin-top:10rem;
 	margin-bottom: -50px;
 	text-shadow:2px 2px 2px #962816;
