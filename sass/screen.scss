@@ -8,15 +8,25 @@
 @import "susy";
 @import "breakpoint";
 
+//Mixins
+@mixin selectanimation($animation) {
+    -webkit-transition: $animation;
+    -moz-transition: $animation;
+    -ms-transition: $animation;
+    -o-transition: $animation;
+    transition: $animation;
+  }
 
 //Variables
 
 //colors
-$darkblue: rgba(0,46,83,1.0);
-$lightgreen: rgba(123,203,191,1.0);
-$silvergrey: rgba(230,245,255,1.0);
 $coral: rgba(238,84,59,1.0);
+$darkblue: rgba(0,46,83,1.0);
 $darkgreen: rgba(1,126,94,1.0);
+$lightgreen: rgba(123,203,191,1.0);
+$offwhite: rgba(245,244,244, 1.0);
+//$offwhite: rgba(255,255,248, 1.0);
+$silvergrey: rgba(230,245,255,1.0);
 
 // grid Setup 
 $susy: (
@@ -28,9 +38,26 @@ $susy: (
 
 //body setup
 body{
+	color: $darkblue;
 	font-family: "proxima-nova", sans-serif;
 	font-size:16px; //just to be sure
+}
 
+a {
+	color: $coral;
+	text-decoration: none;
+	@include selectanimation(all 0.3s ease-in);
+	&:hover {
+		color:lighten($darkblue, 5%);
+	}
+}
+
+h2 {
+	font-size: 2rem;
+	font-weight: 300;
+	letter-spacing: 0.05em;
+	margin-bottom: 0.3rem;
+	text-transform: uppercase;
 }
 
 // layout styles
@@ -45,10 +72,9 @@ body{
 	height:4.75rem;
 }
 header{
-
 	width:100%;
 	position:fixed;
-	background-color:rgba(255,255,255,0.9);
+	background-color: rgba(255,255,255, 0.97);
 	z-index:999;
 	height:80px;
 	text-align:center;
@@ -70,7 +96,12 @@ nav > ul li{
 }
 nav > ul li a{
 	color:$lightgreen;
+	letter-spacing: .07em;
 	text-decoration:none;
+	&:hover {
+		color: $darkblue;
+		@include selectanimation(all 0.3s ease-in);
+	}
 }
 
 //background image styles
@@ -110,18 +141,18 @@ img.bg {
 	color:$coral;
 	font-weight:100;
 	margin-left:span(5.35 of 12);
-	text-shadow:2px 2px 2px $darkblue;
+	text-shadow:2px 2px 2px #962816;
 }
 //letteringJS styles for Landing Title
 .landingTitle{
 	@include span(7 of 12);
 	font-size:7rem;
 	color:$coral;
-	text-shadow:2px 2px 2px $darkblue;
 	font-weight:300;
 	margin-left:span(1 of 12);
 	margin-top:10rem;
 	margin-bottom: -50px;
+	text-shadow:2px 2px 2px #962816;
 }
 .char2{
 	margin-left:5px;
@@ -155,18 +186,18 @@ img.bg {
 //festivities page
 #festivities{
 	height:800px;
-	background-color:$silvergrey;
+	background-color:$offwhite;
 	padding-top:80px;
 }
 .venueTitle, .eventsTitle, .foodTitle{
 	@include span(full);
-	padding-left: 1rem;
+	padding-left: 6rem;
 }
 .venueContent, .eventsContent, .foodContent{
 	@include span(8 of 12);
-	margin-left: span(1 of 12);
+	margin-left: span(2.25 of 12);
+	line-height: 150%;
 }
-
 #seattle{
 	min-height:800px;
 	background-color:$silvergrey;
