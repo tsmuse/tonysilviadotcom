@@ -45,18 +45,34 @@ body{
 
 a {
 	color: $coral;
-	text-decoration: none;
-	@include selectanimation(all 0.3s ease-in);
 	&:hover {
 		color:#c8270d;
 	}
 }
+a.darkbg{
+	color: $darkgreen;
+	&:hover {
+		color:#03533e;
+	}
+}
+a, a.darkbg {
+	text-decoration: none;
+	@include selectanimation(all 0.3s ease-in);
+}
 
 h2 {
-	font-size: 2.1rem;
+	font-size: 1.6rem;
 	font-weight: 200;
 	letter-spacing: 0.05em;
 	margin-bottom: 0.3rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+	font-weight: 200;
+	margin-bottom: 0.1rem;
+	padding-top: 1rem;
+	text-transform: uppercase;
 }
 
 // layout styles
@@ -190,9 +206,8 @@ img.bg {
 
 //festivities page
 #festivities{
-	height:800px;
+	height:750px;
 	background-color:$offwhite;
-	padding-top:80px;
 }
 .venueTitle, .eventsTitle, .foodTitle{
 	@include span(full);
@@ -203,15 +218,54 @@ img.bg {
 	margin-left: span(2.25 of 12);
 	line-height: 150%;
 }
+
+//visiting Seattle page
 #seattle{
-	min-height:800px;
-	background-color:$silvergrey;
+	height:1400px;
+	background-color:$lightgreen;
+	padding-top:80px;
 }
+.stayTitle, .drivingTitle, .sightsTitle {
+	@include span(full);
+	padding-left: 6rem;
+}
+.stayContent, .drivingContent, .sightsContent {
+	@include span(8 of 12);
+	margin-left: span(2.25 of 12);
+	line-height: 150%;
+}
+
+//registing page
 #registry{
-	height:800px;
-	background-color:green;
+	height:550px;
+	background-color:$silvergrey;
+	padding-top:80px;
 }
+.registryTitle {
+	@include span(full);
+	padding-left: 6rem;
+}
+
+.registryContent {
+	@include span(8 of 12);
+	margin-left: span(2.25 of 12);
+	line-height: 150%;
+}
+
+//photos page
 #photos{
 	height:800px;
-	background-color:yellow;
+	background-color:$offwhite;
+	padding-top:80px;
+}
+
+.photosTitle {
+	@include span(full);
+	padding-left: 6rem;
+}
+
+.photosContent {
+	@include span(8 of 12);
+	margin-left: span(2.25 of 12);
+	line-height: 150%;
 }
