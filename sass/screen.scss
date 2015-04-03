@@ -36,6 +36,16 @@ $susy: (
 
 @include border-box-sizing;
 
+.container{
+	@include container;
+	@include clearfix;
+
+	position:relative;
+	top:100vh;
+	z-index:100;
+	background-color:$offwhite;
+}
+
 //body setup
 body{
 	color: $darkblue;
@@ -76,15 +86,7 @@ h3 {
 }
 
 // layout styles
-.container{
-	@include container;
-	@include clearfix;
-	padding-top:90px; // to account for the menu + landing page + 10px buffer
-	position:relative;
-	top:100vh;
-	z-index:100;
-	background-color:$offwhite;
-}
+
 // menu styles
 #logo{
 	width:4.75rem;
@@ -112,11 +114,16 @@ nav > ul li{
 	padding-left: gutter(10);
 	padding-right:gutter(10);
 	vertical-align:middle;
+	
+	width:span(1.5 of 12);
 }
 nav > ul li a{
 	color:$lightgreen;
-	letter-spacing: .07em;
+	
 	text-decoration:none;
+	font-size: 1rem;
+	line-height: 1.15rem;
+	font-weight:400;
 	&:hover {
 		color: $darkblue;
 		@include selectanimation(all 0.3s ease-in);
@@ -205,27 +212,78 @@ img.bg {
 }
 
 //section-specific page styles
+
+//festivities styles
 #festivities{
-	height:750px;
+	@include span(full);
+	min-height:750px;
 	background-color:$offwhite;
+	background-image:url("../imgs/triangleTexture.svg");
+	background-size:200% 200%;
+	background-position:center;
+	background-repeat: no-repeat;
 }
+#festivitiesHeader{
+	@include span(full);
+	height:200px;
+	overflow:hidden;
+	color:$coral;
+	background-image: url("../imgs/westland02.jpg");
+	background-repeat: no-repeat;
+}
+//visiting seattle styles
 #seattle{
-	height:1400px;
+	@include span(full);
+	min-height:1400px;
 	background-color:$lightgreen;
-	padding-top:80px;
+	//padding-top:80px;
+	background-image:url("../imgs/triangleTexture.svg");
+	background-size:225% 225%;
+	background-position:center center;
+	background-repeat: no-repeat;
 }
+
+#seattleHeader{
+	@include span(full);
+	height:200px;
+	overflow:hidden;
+	background-image: url("../imgs/stamen_watercolor_seattle.jpg");
+	background-repeat: no-repeat;
+}
+//registry styles
 #registry{
-	height:550px;
+	@include span(full);
+	min-height:100vh;
 	background-color:$silvergrey;
-	padding-top:80px;
+	//padding-top:80px;
+	background-image:url("../imgs/triangleTexture.svg");
+	background-size:275% 275%;
+	background-position:center center;
+	background-repeat: no-repeat;
 }
+#registryHeader{
+	@include span(full);
+	height:200px;
+	overflow:hidden;
+	background-image: url("../imgs/betterDays.jpg");
+	background-repeat: no-repeat;
+	color:$coral;
+}
+//photos styles
 #photos{
+	@include span(full);
 	height:800px;
 	background-color:$offwhite;
 	padding-top:80px;
 }
 
 //universal title styles
+.sectionTitle{
+	font-size:2.5rem;
+	width:span(full);
+	padding-left:6rem;
+	margin-top:8rem;
+}
 .venueTitle, .eventsTitle, .foodTitle, .stayTitle, .drivingTitle, .sightsTitle, .registryTitle, .photosTitle{
 	@include span(full);
 	padding-left: 6rem;
