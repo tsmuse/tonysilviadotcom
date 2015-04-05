@@ -81,8 +81,18 @@ h3 {
 	font-size: 1.2rem;
 	font-weight: 200;
 	margin-bottom: 0.1rem;
-	padding-top: 1rem;
+	padding-top: 2rem;
 	text-transform: uppercase;
+}
+
+h4 {
+	margin-bottom: 0.4rem;
+}
+.seealso {
+	color: $darkgreen;
+	list-style-type: none;
+	margin-top: 0px;
+	padding-left: 0px;
 }
 
 // layout styles
@@ -234,7 +244,7 @@ img.bg {
 //visiting seattle styles
 #seattle{
 	@include span(full);
-	min-height:1400px;
+	min-height:1550px;
 	background-color:$lightgreen;
 	//padding-top:80px;
 	background-image:url("../imgs/triangleTexture.svg");
@@ -247,14 +257,15 @@ img.bg {
 	@include span(full);
 	height:200px;
 	overflow:hidden;
-	background-image: url("../imgs/stamen_watercolor_seattle.jpg");
-	background-repeat: no-repeat;
+	background-color: #ede6d1;
+	background: url("../imgs/spaceneedle.jpg")no-repeat; 
+  	color:$darkblue;
 }
 //registry styles
 #registry{
 	@include span(full);
 	min-height:100vh;
-	background-color:$silvergrey;
+	background-color:$offwhite;
 	//padding-top:80px;
 	background-image:url("../imgs/triangleTexture.svg");
 	background-size:275% 275%;
@@ -272,8 +283,9 @@ img.bg {
 //photos styles
 #photos{
 	@include span(full);
+	color: $offwhite;
 	height:800px;
-	background-color:$offwhite;
+	background-color:$darkblue;
 	padding-top:80px;
 }
 
