@@ -75,14 +75,6 @@ a, a.darkbg {
 	@include selectanimation(all 0.3s ease-in);
 }
 
-
-.seealso {
-	color: -ts-color($darkgreen);
-	list-style-type: none;
-	margin-top: 0px;
-	padding-left: 0px;
-}
-
 // layout styles
 
 // menu styles
@@ -131,7 +123,7 @@ a, a.darkbg {
 		display:none;
 		width: span(full);
 		text-align: left;
-		background-color: -ts-color($silvergrey,0.8);
+		background-color: -ts-color($offwhite,0.8);
 		border-bottom: 1px solid -ts-color($darkblue,0.45);
 	}
 	#mobileMenu ul{
@@ -367,7 +359,7 @@ a, a.darkbg {
 		margin-left: 34rem;
 	}
 }
-// desktop fixes for wider and taller viewports
+// XL desktop fixes 
 @include breakpoint((min-width 1550px) (min-height 700px)){
 	.landingTitle{
 		padding-left:span(1 of 12);
@@ -399,11 +391,9 @@ h3 {
 
 h4 {
 	margin-bottom: 0.4rem;
+
 }
 
-#container{
-	background-color: -ts-color($silvergrey);
-}
 #container > section > div{
 	background-color: -ts-color($silvergrey, 0.94);
 	padding-bottom:20px;
@@ -428,8 +418,8 @@ h4 {
 }
 .sectionContent{
 	@include span(full);
-	padding-left:10px;
-	padding-right:10px;
+	padding-left:1rem;
+	padding-right:1rem;
 }
 .sectionContent h3{
 	@include span(full);
@@ -453,8 +443,8 @@ h4 {
 	}
 	.sectionContent{
 		@include span(full);
-		padding-left:10px;
-		padding-right:10px;
+		padding-left:1.5rem;
+		padding-right:1.5rem;
 	}
 	.sectionContent h3{
 		@include span(full);
@@ -490,9 +480,6 @@ h4 {
 	@include span(full);
 	min-height:750px;
 }
-#festivities > .sectionHeader{
-	
-}
 #map{
 	@include span(full);
 	padding-bottom:0.9rem;
@@ -513,6 +500,7 @@ h4 {
 
 	#tacos{
 		@include span(4 of 12);
+		padding-left:0.3rem;
 		float:right;
 	}
 
@@ -526,7 +514,6 @@ h4 {
 
 	#tacos{
 		@include span(3 of 12);
-		padding-left:0.3rem;
 		float:right;
 	}
 }
@@ -538,7 +525,6 @@ h4 {
 
 	#tacos{
 		@include span(2 of 12);
-		padding-left:0.3rem;
 		float:right;
 	}
 }
@@ -547,40 +533,98 @@ h4 {
 	@include span(full);
 	min-height:1550px;
 }
+#seattle .sectionHeader > h2{
+	padding-left:span(1.5 of 12);
+}
 
-#seattleHeader{
+#neighborhoodMap{
 	@include span(full);
-	height:200px;
-	overflow:hidden;
-	background-color: #ede6d1;
-	background: url("../imgs/spaceneedle.jpg")no-repeat; 
-  	color: -ts-color($darkblue);
+	padding-bottom:0.9rem;
+}
+#pikeplace{
+	@include span(full);
+	padding-bottom:0.9rem;
+}
+.seealso {
+	@include span(full);
+}
+.seealso > ul{
+	color: -ts-color($darkgreen);
+	list-style-type: none;
+	padding-left: 0px;
+	margin-top: 0px;
+}
+
+//tablet styles
+@include breakpoint(700px){
+	#seattle .sectionHeader > h2{
+		padding-left:span(6 of 12);
+	}
+	#neighborhoodMap{
+		@include span(6 of 12);
+	}	
+	#pikeplace{
+		@include span(4 of 12);
+			float:right;
+			padding-left:0.3rem;
+	}
+	.seealso{
+		margin-left: span(1 of 12);
+	}
+}
+//desktop styles
+@include breakpoint(1000px){
+	#neighborhoodMap{
+		@include span(4 of 12);
+	}	
+	#pikeplace{
+		@include span(3 of 12);
+	}
+	.seealso{
+		margin-left: span(1 of 12);
+		font-size: 1.1rem;
+	}
 }
 //registry styles
+//mobile styles
 #registry{
 	@include span(full);
-	min-height:100vh;
-	background-color:-ts-color($offwhite);
-	//padding-top:80px;
-	background-image:url("../imgs/triangleTexture.svg");
-	background-size:275% 275%;
-	background-position:center center;
-	background-repeat: no-repeat;
+	min-height:500px;
 }
-#registryHeader{
-	@include span(full);
-	height:200px;
-	overflow:hidden;
-	background-image: url("../imgs/betterDays.jpg");
-	background-repeat: no-repeat;
-	color: -ts-color($coral);
+#registry .sectionContent > ul{
+	list-style:none;
+	padding-left:0;
+}
+.charityLogo{
+	width:span(full);
+}
+//tablet styles
+@include breakpoint(700px){
+	.charityLogo{
+		width: span(6 of 12);
+	}
+	#registry .sectionContent > ul > li{
+		display: inline;
+		&:last-of-type{
+			display:block;
+		}
+	}
+}
+//desktop styles
+@include breakpoint(1000px){
+	.charityLogo{
+		width: span(4 of 12);
+	}
+	#registry .sectionContent > ul > li{
+		display: inline;
+		&:last-of-type{
+			display:inline;
+		}
+	}
 }
 //photos styles
 #photos{
 	@include span(full);
-	color: $offwhite;
-	height:800px;
-	background-color: -ts-color($darkblue);
-	padding-top:80px;
+	min-height:500px;
 }
 
