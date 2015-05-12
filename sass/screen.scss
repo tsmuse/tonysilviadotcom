@@ -19,14 +19,19 @@
 
 //Variables
 
-//colors
-$coral: rgba(238,84,59,1.0);
-$darkblue: rgba(0,46,83,1.0);
-$darkgreen: rgba(1,126,94,1.0);
-$lightgreen: rgba(123,203,191,1.0);
-$offwhite: rgba(250,250,250, 1.0);
+//colors 
+$coral: #ee543b;
+$darkblue: #002e53;
+$darkgreen: #017e5e;
+$lightgreen: #7bcbbf;
+$offwhite: #fafafa;
 //$offwhite: rgba(255,255,248, 1.0);
-$silvergrey: rgba(230,245,255,1.0);
+$silvergrey: #e6f5ff;
+
+//Functions
+@function -ts-color($rgbValue, $alpha:1){
+	@return rgba($rgbValue, $alpha);
+}
 
 // grid Setup 
 $susy: (
@@ -36,31 +41,31 @@ $susy: (
 
 @include border-box-sizing;
 
-.container{
+#container{
 	@include container;
 	@include clearfix;
-
-	position:relative;
+	position:absolute;
 	top:100vh;
 	z-index:100;
-	background-color:$offwhite;
 }
+
+//background image
 
 //body setup
 body{
-	color: $darkblue;
+	color: -ts-color($darkblue);
 	font-family: "proxima-nova", sans-serif;
 	font-size:16px; //just to be sure
 }
 
 a {
-	color: $coral;
+	color: -ts-color($coral);
 	&:hover {
 		color:#c8270d;
 	}
 }
 a.darkbg{
-	color: $darkgreen;
+	color: -ts-color($darkgreen);
 	&:hover {
 		color:#03533e;
 	}
@@ -70,26 +75,9 @@ a, a.darkbg {
 	@include selectanimation(all 0.3s ease-in);
 }
 
-h2 {
-	font-size: 1.6rem;
-	font-weight: 200;
-	letter-spacing: 0.05em;
-	margin-bottom: 0.3rem;
-}
 
-h3 {
-	font-size: 1.2rem;
-	font-weight: 200;
-	margin-bottom: 0.1rem;
-	padding-top: 2rem;
-	text-transform: uppercase;
-}
-
-h4 {
-	margin-bottom: 0.4rem;
-}
 .seealso {
-	color: $darkgreen;
+	color: -ts-color($darkgreen);
 	list-style-type: none;
 	margin-top: 0px;
 	padding-left: 0px;
@@ -98,159 +86,466 @@ h4 {
 // layout styles
 
 // menu styles
+
+//mobile Styles
 #logo{
-	width:4.75rem;
-	height:4.75rem;
-}
-header{
-	width:100%;
-	position:fixed;
-	background-color: rgba(255,255,255, 0.97);
-	z-index:999;
-	height:80px;
-	text-align:center;
-	border-bottom: 1px solid rgba(0,46,83,0.45);
-}
-nav{
-	margin-top:-0.8rem;
-}
-nav > ul{
-	list-style:none;
-	width: span(full);
-	padding:0;
-}
-nav > ul li{
-	display:inline-block;
-	padding-left: gutter(10);
-	padding-right:gutter(10);
-	vertical-align:middle;
-	
-	width:span(1.5 of 12);
-}
-nav > ul li a{
-	color:$lightgreen;
-	
-	text-decoration:none;
-	font-size: 1rem;
-	line-height: 1.15rem;
-	font-weight:400;
-	&:hover {
-		color: $darkblue;
-		@include selectanimation(all 0.3s ease-in);
+		width:3.6rem;
+		height:3.6rem;
 	}
-}
+	header{
+		width:100%;
+		position:fixed;
+		background-color:-ts-color($offwhite);
+		z-index:999;
+		
+	}
+	nav{
 
-//background image styles
-img.bg {
-  /* Set rules to fill background */
-  min-height: 100%;
-  min-width: 1024px;
+		
+		height:60px;
+		text-align:center;
+		border-bottom: 1px solid rgba(0,46,83,0.45);
+		margin-top:-0.8rem;
+	}
+	nav > ul{
+		list-style:none;
+		width: span(full);
+		padding:0;
+		height:100%;
+		margin-bottom: -16px;
+	}
 	
-  /* Set up proportionate scaling */
-  width: 100%;
-  height: auto;
-	
-  /* Set up positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
+	nav > ul li{
+		display:none;
+	}
+	#logoBox{
+		display:inline-block;
+		width:4.75rem;
+		height:4.75rem;
+		overflow:hidden;
+		padding:0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	#mobileMenu{
+		display:none;
+		width: span(full);
+		text-align: left;
+		background-color: -ts-color($silvergrey,0.8);
+		border-bottom: 1px solid -ts-color($darkblue,0.45);
+	}
+	#mobileMenu ul{
+		list-style: none;
+		margin-left:2rem;
+		padding-top:10px;
+	}
+	#mobileMenu ul li a{
+		line-height: 1.8rem;
+		font-size: 1.5rem;
+		color: -ts-color($darkblue);
+	}
 
-@media screen and (max-width: 1024px) { /* Specific to this particular image */
-  img.bg {
-    left: 50%;
-    margin-left: -512px;   /* 50% */
-  }
+//tablet & desktop override Styles
+@include breakpoint(768px){
+	#logo{
+		width:4.3rem;
+		height:4.3rem;
+	}
+	nav{
+		height:80px;
+	}
+	#logoBox{
+		display:none;
+	}
+	#desktopLogoBox{
+		display:inline-block;
+		width:4.75rem;
+		height:4.75rem;
+		overflow:hidden;
+		padding:0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	nav > ul li{
+		display:inline-block;
+		padding:0;
+		vertical-align:middle;
+		
+		width:span(1.5 of 12);
+	}
+
+	nav > ul li a{
+		color: -ts-color($lightgreen);
+		
+		text-decoration:none;
+		font-size: 1rem;
+		line-height: 1.15rem;
+		font-weight:400;
+		&:hover {
+			color: -ts-color($darkblue);
+			@include selectanimation(all 0.3s ease-in);
+		}
+	}
+
 }
 
 // section styles
 
 //landing "page" styles
-#landing{
-	height:600px;
-	position:fixed;
-	z-index:1;
-} 
 
-.landingDate{
-	@include span(8 of 12);
-	font-size:3rem;
-	color:$coral;
-	font-weight:100;
-	margin-left:span(5.35 of 12);
-	text-shadow:2px 2px 2px #962816;
+//mobile - iPhone-ish devices
+#landing{
+	position:fixed;
+	background: none repeat scroll 0% 0% transparent;
+	width:100%;
+	height:100%;
+	z-index:-1;
+}
+#pageBG{
+	background: url(../imgs/bg3_small.jpg) no-repeat center center scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+	width: 100%;
+	height:100%;
+	margin:auto;
+	position:absolute;
+	z-index:1;
+	right:0px;
+	bottom: 0px;
+	left:0px;
 }
 //letteringJS styles for Landing Title
 .landingTitle{
 	@include span(full);
-	font-size:7rem;
-	color:$coral;
+	position:relative;
+	color:$lightgreen;
 	font-weight:300;
-	padding-left:span(1 of 12);
-	margin-top:10rem;
+	padding-left:span(1.5 of 12);
+	top: 16.3rem;
 	margin-bottom: -50px;
-	text-shadow:2px 2px 2px #962816;
+	text-shadow:2px 2px 2px -ts-color($coral,0.3), 1px 2px 2px -ts-color($lightgreen,0.7);
 }
-.char2{
-	margin-left:5px;
+
+//individual word spacings
+//tyin' .word1
+.word1{
+	display:inline-block;
+	font-size:4.5rem;
+	line-height:6.5rem;
 }
-.char4{
-	margin-left:-3px;
+.word1 > .char2{
+	margin-left:2px;
+}
+.word1 > .char3{
+	margin-left:-1px;
+}
+.word1 > .char4{
+	margin-left:-3.0px;
 
 }
-.char5{
+.word1 > .char5{
 	margin-left:-6px;
 }
-.char6{
-	margin-left:-5px;
+
+
+//the .word2
+.word2{
+	font-size:1.7rem;
+	display:inline-block;
+	margin-left:-1rem;
 }
-.char9{
-	margin-left:-6px;
-}
-.char10{
-	margin-left:-8px;
-}
-.char12{
+.word2 > .char3{
 	margin-left:-2px;
 }
-.char13{
-	margin-left:-4px;
+
+//knot! .word3
+.word3{
+	font-size:4.5rem;
+	margin-top:-2rem;
+	display:block;
+	margin-bottom:0.7rem;
 }
-.char14{
+.word3 > .char2{
+	margin-left:-1px;
+}
+.word3 > .char3{
 	margin-left:-3px;
 }
+.word3 > .char4{
+	margin-left:-3px;
+}
+.word3 > .char5{
+	margin-left:-1px;
+}
+//09.12.15 .word4
+.word4{
+	font-size:1.8rem;
+	color: -ts-color($silvergrey);
+	font-weight:100;
+	margin-top:-2rem;
+	margin-left:4.5rem;
+	display:inline-block;
+}
+// taller mobiles styles
+@include breakpoint((min-height 500px) (max-width 699px)){
+	.landingTitle{
+		top: 24.5rem;
+	}
+}
+//tablet overrides
+@include breakpoint(700px){
+	#pageBG{
+		background-image: url(../imgs/bg3_medium.jpg);
+	}	
+	.landingTitle{
+		padding-left:span(1 of 12);
+		top: 42.5rem;
+	}
+	//individual word spacings
+	//tyin' .word1
+	.word1{
+		font-size:9rem;
+	}
+	.word1 > .char5{
+		margin-left:-10px;
+	}
 
-//section-specific page styles
+	//the .word2
+	.word2{
+		font-size:4.5rem;
+		margin-left:-0.9rem;
+	}
+
+	//knot! .word3
+	.word3{
+		font-size:9rem;
+		margin-top:-1.8rem;
+		display:inline-block;
+	}
+	//09.12.15 .word4
+	.word4{
+		font-size:4rem;
+		margin-top:-1.5rem;
+		margin-left: 68%;
+	}
+
+}
+//desktop overrides
+@include breakpoint(1000px){
+	#pageBG{
+		background-image: url(../imgs/bg3_large.jpg);
+	}	
+	.landingTitle{
+		padding-left:span(1 of 12);
+		//top: 25.5rem;
+		top:67vh;
+	}
+	//individual word spacings
+	//tyin' .word1
+	.word1{
+		font-size:8.7rem;
+	}
+	//the .word2
+	.word2{
+		font-size:4.2rem;
+		
+	}
+
+	//knot! .word3
+	.word3{
+		font-size:8.7rem;
+	}
+	//09.12.15 .word4
+	.word4{
+		font-size:3.5rem;
+		display: block;
+		margin-top:-3.3rem;
+		margin-left: 34rem;
+	}
+}
+// desktop fixes for wider and taller viewports
+@include breakpoint((min-width 1550px) (min-height 700px)){
+	.landingTitle{
+		padding-left:span(1 of 12);
+		//top: 25.5rem;
+		top:70vh;
+	}
+}
+
+
+
+//Pages
+//Universal pages styles
+//mobile
+h2 {
+	font-size: 1.6rem;
+	font-weight: 200;
+	letter-spacing: 0.05em;
+}
+
+h3 {
+	font-size: 1.4rem;
+	font-weight: 200;
+	font-variant-caps: small-caps;
+  	-moz-font-feature-settings: "smcp";
+  	-ms-font-feature-settings: "smcp";
+  	-webkit-font-feature-settings: "smcp";
+  	font-feature-settings: "smcp";
+}
+
+h4 {
+	margin-bottom: 0.4rem;
+}
+
+#container{
+	background-color: -ts-color($silvergrey);
+}
+#container > section > div{
+	background-color: -ts-color($silvergrey, 0.94);
+	padding-bottom:20px;
+	margin-bottom:0px;
+	color: -ts-color($darkblue);
+}
+.sectionHeader{
+	@include span(full);
+	height:150px;
+	overflow:hidden;
+	color: -ts-color($coral);
+	margin-bottom:1rem;;
+	background-image: url("../imgs/festivities02.svg");
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+.sectionHeader h2{
+	font-size:2.5rem;
+	width:span(full);
+	padding-left:span(5 of 12);
+	margin-top:6rem;
+}
+.sectionContent{
+	@include span(full);
+	padding-left:10px;
+	padding-right:10px;
+}
+.sectionContent h3{
+	@include span(full);
+	margin:0;
+	padding-bottom:0.4rem;
+}
+//tablet
+@include breakpoint(700px){
+	.sectionHeader{
+		@include span(full);
+		height:150px;
+		overflow:hidden;
+		color: -ts-color($coral);
+		margin-bottom:1rem;;
+	}
+	.sectionHeader h2{
+		font-size: 3rem;
+		width:span(full);
+		padding-left:span(6 of 12);
+		margin-top:6rem;
+	}
+	.sectionContent{
+		@include span(full);
+		padding-left:10px;
+		padding-right:10px;
+	}
+	.sectionContent h3{
+		@include span(full);
+		margin:0;
+		padding-bottom:0.4rem;
+		font-size:2rem;
+	}
+	.sectionContent p{
+		font-size:1.1rem;
+	}
+}
+//desktop
+@include breakpoint(1000px){
+	.sectionContent{
+		@include span(11 of 12);
+		padding-left:span(1.5 of 12);
+		padding-right:span(0.5 of 12);
+	}
+}
+//XL desktops
+@include breakpoint(1600px){
+	.sectionContent{
+		@include span(10.5 of 12);
+		padding-left:span(2 of 12);
+		padding-right:span(1 of 12);
+		font-size: 1.4rem;
+	}
+}
 
 //festivities styles
+//mobile
 #festivities{
 	@include span(full);
 	min-height:750px;
-	background-color:$offwhite;
-	background-image:url("../imgs/triangleTexture.svg");
-	background-size:200% 200%;
-	background-position:center;
-	background-repeat: no-repeat;
 }
-#festivitiesHeader{
+#festivities > .sectionHeader{
+	
+}
+#map{
 	@include span(full);
-	height:200px;
-	overflow:hidden;
-	color:$coral;
-	background-image: url("../imgs/westland02.jpg");
-	background-repeat: no-repeat;
+	padding-bottom:0.9rem;
+}
+#map img{
+	width:span(full);
+}
+#tacos{
+	@include span(full);
+	padding-bottom:0.9rem;
+}
+//tablet
+@include breakpoint(700px){
+	#map{
+	@include span(6 of 12);
+	
+	}
+
+	#tacos{
+		@include span(4 of 12);
+		float:right;
+	}
+
+}
+//desktop
+@include breakpoint(1000px){
+	#map{
+	@include span(4 of 12);
+	
+	}
+
+	#tacos{
+		@include span(3 of 12);
+		padding-left:0.3rem;
+		float:right;
+	}
+}
+//XL desktops
+@include breakpoint(1600px){
+	#map{
+		@include span(4 of 12);
+	}
+
+	#tacos{
+		@include span(2 of 12);
+		padding-left:0.3rem;
+		float:right;
+	}
 }
 //visiting seattle styles
 #seattle{
 	@include span(full);
 	min-height:1550px;
-	background-color:$lightgreen;
-	//padding-top:80px;
-	background-image:url("../imgs/triangleTexture.svg");
-	background-size:225% 225%;
-	background-position:center center;
-	background-repeat: no-repeat;
 }
 
 #seattleHeader{
@@ -259,13 +554,13 @@ img.bg {
 	overflow:hidden;
 	background-color: #ede6d1;
 	background: url("../imgs/spaceneedle.jpg")no-repeat; 
-  	color:$darkblue;
+  	color: -ts-color($darkblue);
 }
 //registry styles
 #registry{
 	@include span(full);
 	min-height:100vh;
-	background-color:$offwhite;
+	background-color:-ts-color($offwhite);
 	//padding-top:80px;
 	background-image:url("../imgs/triangleTexture.svg");
 	background-size:275% 275%;
@@ -278,33 +573,14 @@ img.bg {
 	overflow:hidden;
 	background-image: url("../imgs/betterDays.jpg");
 	background-repeat: no-repeat;
-	color:$coral;
+	color: -ts-color($coral);
 }
 //photos styles
 #photos{
 	@include span(full);
 	color: $offwhite;
 	height:800px;
-	background-color:$darkblue;
+	background-color: -ts-color($darkblue);
 	padding-top:80px;
-}
-
-//universal title styles
-.sectionTitle{
-	font-size:2.5rem;
-	width:span(full);
-	padding-left:6rem;
-	margin-top:8rem;
-}
-.venueTitle, .eventsTitle, .foodTitle, .stayTitle, .drivingTitle, .sightsTitle, .registryTitle, .photosTitle{
-	@include span(full);
-	padding-left: 6rem;
-}
-
-//universal content styles
-.venueContent, .eventsContent, .foodContent,.stayContent, .drivingContent, .sightsContent, .registryContent, .photosContent {
-	@include span(8 of 12);
-	margin-left: span(2.25 of 12);
-	line-height: 150%;
 }
 
