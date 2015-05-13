@@ -92,11 +92,9 @@ a, a.darkbg {
 		
 	}
 	nav{
-
-		
 		height:60px;
 		text-align:center;
-		border-bottom: 1px solid rgba(0,46,83,0.45);
+		border-bottom: 1px solid -ts-color($darkblue, 0.2);
 		margin-top:-0.8rem;
 	}
 	nav > ul{
@@ -461,7 +459,7 @@ h4 {
 	.sectionContent{
 		@include span(11 of 12);
 		padding-left:span(1.5 of 12);
-		padding-right:span(0.5 of 12);
+		
 	}
 }
 //XL desktops
@@ -623,8 +621,78 @@ h4 {
 	}
 }
 //photos styles
+//mobile
 #photos{
 	@include span(full);
 	min-height:500px;
+
+}
+.photoLargeRow, .photoSmallRow{
+	@include span(full);
+}
+.photoWrapper{
+	@include span(full);
+	padding-bottom:0.5rem;
+}
+.photoWrapper > a > img{
+	width:100%;
+}
+//tablet
+@include breakpoint(700px){
+	.photoLargeRow, .photoSmallRow{
+		padding-left:span(1 of 12)
+	}
+	.photoSmallRow > .photoWrapper, .photoLargeRow > .photoWrapper{
+		@include span(5.5 of 12);
+		
+	}
+}
+//desktop
+@include breakpoint(1000px){
+	.photoLargeRow, .photoSmallRow{
+		padding-left:span(0.6 of 12);
+		padding-bottom:1rem;
+	}
+	
+	.photoLargeRow > .photoWrapper{
+		@include span(5.5 of 12);
+		padding-bottom:0;
+	}
+	.photoSmallRow > .photoWrapper{
+		@include span(3.65 of 12);
+		padding-bottom:0rem;
+	}
+}
+//XL desktops
+@include breakpoint(1500px){
+	.photoLargeRow, .photoSmallRow{
+		margin-left:span(1 of 12);
+		
+	}
+}
+
+//footer styles
+footer .sectionContent{
+	@include span(full);
+	background-color: -ts-color($offwhite);
+	color: -ts-color($lightgreen);
+	height:4rem;
+	border-top: 1px solid -ts-color($darkblue, 0.2);
+}
+
+footer .sectionContent > p{
+	
+	font-size:0.7rem;
+	text-align:center;
+	margin-bottom:0.3rem;
+	margin-top:0.4rem;
+	&:last-of-type{
+		margin-top:0;
+	}
+}
+@include breakpoint(1000px){
+	footer .sectionContent > p{
+		@include span(10.5 of 12);
+	}
 }
 

@@ -11,7 +11,10 @@ $(document).ready(function(){
 	$('#mobileMenu a').click(function(e){
 		$('#mobileMenu').toggle('blind','fast');
 	});
-
-
+	
+//fluidbox -- still broken
+	$('#photos a').click(function(e){
+		this.fluidbox();
+	});
 //end
 });
