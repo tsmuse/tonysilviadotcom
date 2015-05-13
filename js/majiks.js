@@ -11,10 +11,12 @@ $(document).ready(function(){
 	$('#mobileMenu a').click(function(e){
 		$('#mobileMenu').toggle('blind','fast');
 	});
-	
-//fluidbox -- still broken
-	$('#photos a').click(function(e){
-		this.fluidbox();
-	});
+//scrollmagic
+var controller = new ScrollMagic.Controller();
+
+new ScrollMagic.Scene({triggerElement: "#festivities"})
+	.setClassToggle("#mobileMenu", "opaque")
+	.setClassToggle("#pageTitle", "invisible")
+	.addTo(controller);
 //end
 });

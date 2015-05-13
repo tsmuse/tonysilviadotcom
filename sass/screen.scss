@@ -117,22 +117,25 @@ a, a.darkbg {
 		margin-left: auto;
 		margin-right: auto;
 	}
-	#mobileMenu{
+	.mobileMenu{
 		display:none;
 		width: span(full);
 		text-align: left;
 		background-color: -ts-color($offwhite,0.8);
 		border-bottom: 1px solid -ts-color($darkblue,0.45);
 	}
-	#mobileMenu ul{
+	.mobileMenu ul{
 		list-style: none;
 		margin-left:2rem;
 		padding-top:10px;
 	}
-	#mobileMenu ul li a{
+	.mobileMenu ul li a{
 		line-height: 1.8rem;
 		font-size: 1.5rem;
 		color: -ts-color($darkblue);
+	}
+	.opaque{
+		background-color: -ts-color($offwhite);
 	}
 
 //tablet & desktop override Styles
@@ -207,6 +210,9 @@ a, a.darkbg {
 	right:0px;
 	bottom: 0px;
 	left:0px;
+}
+.invisible{
+	display:none;
 }
 //letteringJS styles for Landing Title
 .landingTitle{
@@ -431,13 +437,16 @@ h4 {
 		height:150px;
 		overflow:hidden;
 		color: -ts-color($coral);
-		margin-bottom:1rem;;
+		margin-bottom:1rem;
+		background-size:contain;
+		background-position:60%;
 	}
 	.sectionHeader h2{
 		font-size: 3rem;
 		width:span(full);
 		padding-left:span(6 of 12);
 		margin-top:6rem;
+
 	}
 	.sectionContent{
 		@include span(full);
@@ -460,6 +469,14 @@ h4 {
 		@include span(11 of 12);
 		padding-left:span(1.5 of 12);
 		
+	}
+	.sectionHeader{
+		background-position:80%;
+	}
+	.sectionHeader h2{
+		width:span(full);
+		padding-left:span(8 of 12);
+
 	}
 }
 //XL desktops
@@ -572,6 +589,10 @@ h4 {
 }
 //desktop styles
 @include breakpoint(1000px){
+	#seattle .sectionHeader > h2{
+		padding-left:span(8 of 12);
+	}	
+
 	#neighborhoodMap{
 		@include span(4 of 12);
 	}	
@@ -634,9 +655,10 @@ h4 {
 	@include span(full);
 	padding-bottom:0.5rem;
 }
-.photoWrapper > a > img{
+.photoWrapper > img{
 	width:100%;
 }
+
 //tablet
 @include breakpoint(700px){
 	.photoLargeRow, .photoSmallRow{
@@ -663,6 +685,7 @@ h4 {
 		padding-bottom:0rem;
 	}
 }
+
 //XL desktops
 @include breakpoint(1500px){
 	.photoLargeRow, .photoSmallRow{
