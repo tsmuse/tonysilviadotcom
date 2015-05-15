@@ -29,7 +29,7 @@ $darkblue: #002e53;
 $darkgreen: #017e5e;
 $lightgreen: #7bcbbf;
 $offwhite: #fafafa;
-//$offwhite: rgba(255,255,248, 1.0);
+$paleblue: #edf3f7;
 $silvergrey: #e6f5ff;
 
 //Functions
@@ -413,7 +413,7 @@ h4 {
 }
 
 #container > section > div{
-	background-color: -ts-color($silvergrey, 0.94);
+	background-color: -ts-color($paleblue, 0.94);
 	padding-bottom:20px;
 	margin-bottom:0px;
 	color: -ts-color($darkblue);
