@@ -1,7 +1,11 @@
-/* Welcome to Compass.
- * In this file you should write your main styles. (or centralize your imports)
- * Import this file using the following HTML or equivalent:
- * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* 
+ * Are you looking for the styles to figure out how something works?  
+ * This site was built using SASS, Breakpoint, and Susy. You should check out the 
+ * sass file on github to see the real code. https://github.com/tsmuse/tonysilviadotcom
+ * 
+ * Author: Tony Santos (www.notjustprettypictures.com, github: tsmuse)
+ * If you've forked this project, please this comment section in-tact for attribution. 
+ */
 
 @import "normalize";
 @import "compass";
@@ -49,8 +53,11 @@ $susy: (
 	z-index:100;
 }
 
-//background image
-
+/*
+ ***********************************
+ * Body 
+ ***********************************
+*/
 //body setup
 body{
 	color: -ts-color($darkblue);
@@ -75,68 +82,69 @@ a, a.darkbg {
 	@include selectanimation(all 0.3s ease-in);
 }
 
-// layout styles
-
-// menu styles
-
+/*
+ ***********************************
+ * Navigation 
+ ***********************************
+*/
 //mobile Styles
 #logo{
 		width:3.6rem;
 		height:3.6rem;
 	}
-	header{
-		width:100%;
-		position:fixed;
-		background-color:-ts-color($offwhite);
-		z-index:999;
-		
-	}
-	nav{
-		height:60px;
-		text-align:center;
-		border-bottom: 1px solid -ts-color($darkblue, 0.2);
-		margin-top:-0.8rem;
-	}
-	nav > ul{
-		list-style:none;
-		width: span(full);
-		padding:0;
-		height:100%;
-		margin-bottom: -16px;
-	}
+header{
+	width:100%;
+	position:fixed;
+	background-color:-ts-color($offwhite);
+	z-index:999;
 	
-	nav > ul li{
-		display:none;
-	}
-	#logoBox{
-		display:inline-block;
-		width:4.75rem;
-		height:4.75rem;
-		overflow:hidden;
-		padding:0;
-		margin-left: auto;
-		margin-right: auto;
-	}
-	.mobileMenu{
-		display:none;
-		width: span(full);
-		text-align: left;
-		background-color: -ts-color($offwhite,0.8);
-		border-bottom: 1px solid -ts-color($darkblue,0.45);
-	}
-	.mobileMenu ul{
-		list-style: none;
-		margin-left:2rem;
-		padding-top:10px;
-	}
-	.mobileMenu ul li a{
-		line-height: 1.8rem;
-		font-size: 1.5rem;
-		color: -ts-color($darkblue);
-	}
-	.opaque{
-		background-color: -ts-color($offwhite);
-	}
+}
+nav{
+	height:60px;
+	text-align:center;
+	border-bottom: 1px solid -ts-color($darkblue, 0.2);
+	margin-top:-0.8rem;
+}
+nav > ul{
+	list-style:none;
+	width: span(full);
+	padding:0;
+	height:100%;
+	margin-bottom: -16px;
+}
+
+nav > ul li{
+	display:none;
+}
+#logoBox{
+	display:inline-block;
+	width:4.75rem;
+	height:4.75rem;
+	overflow:hidden;
+	padding:0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.mobileMenu{
+	display:none;
+	width: span(full);
+	text-align: left;
+	background-color: -ts-color($offwhite,0.8);
+	border-bottom: 1px solid -ts-color($darkblue,0.45);
+}
+.mobileMenu ul{
+	list-style: none;
+	margin-left:2rem;
+	padding-top:10px;
+}
+.mobileMenu ul li a{
+	line-height: 1.8rem;
+	font-size: 1.5rem;
+	color: -ts-color($darkblue);
+}
+.opaque{
+	background-color: -ts-color($offwhite);
+}
 
 //tablet & desktop override Styles
 @include breakpoint(768px){
@@ -183,10 +191,12 @@ a, a.darkbg {
 
 }
 
-// section styles
 
-//landing "page" styles
-
+/*
+ ***********************************
+ * Landing page  
+ ***********************************
+*/
 //mobile - iPhone-ish devices
 #landing{
 	position:fixed;
@@ -225,7 +235,6 @@ a, a.darkbg {
 	margin-bottom: -50px;
 	text-shadow:2px 2px 2px -ts-color($coral,0.3), 1px 2px 2px -ts-color($lightgreen,0.7);
 }
-
 //individual word spacings
 //tyin' .word1
 .word1{
@@ -374,7 +383,11 @@ a, a.darkbg {
 
 
 
-//Pages
+/*
+ ***************************************
+ * "Universal" content section styles 
+ ***************************************
+*/
 //Universal pages styles
 //mobile
 h2 {
@@ -394,7 +407,8 @@ h3 {
 }
 
 h4 {
-	margin-bottom: 0.4rem;
+	margin-bottom: 0.2rem;
+	margin-top:0.3rem;
 
 }
 
@@ -430,6 +444,11 @@ h4 {
 	margin:0;
 	padding-bottom:0.4rem;
 }
+.sectionContent > div{
+	@include span(full);
+	margin-bottom:0.5rem;
+}
+
 //tablet
 @include breakpoint(700px){
 	.sectionHeader{
@@ -489,6 +508,11 @@ h4 {
 	}
 }
 
+/*
+ ***********************************
+ * Festivities page 
+ ***********************************
+*/
 //festivities styles
 //mobile
 #festivities{
@@ -496,8 +520,9 @@ h4 {
 	min-height:750px;
 }
 #map{
-	@include span(full);
+	width: span(full);
 	padding-bottom:0.9rem;
+	display:inline-block;
 }
 #map img{
 	width:span(full);
@@ -509,13 +534,15 @@ h4 {
 //tablet
 @include breakpoint(700px){
 	#map{
-	@include span(6 of 12);
+		width: span(6 of 12);
+		float:left;
+		padding-right:0.8rem;
 	
 	}
 
 	#tacos{
-		@include span(4 of 12);
-		padding-left:0.3rem;
+		width: span(4 of 12);
+		padding-left:0.8rem;
 		float:right;
 	}
 
@@ -523,12 +550,12 @@ h4 {
 //desktop
 @include breakpoint(1000px){
 	#map{
-	@include span(4 of 12);
+	width: span(4 of 12);
 	
 	}
 
 	#tacos{
-		@include span(3 of 12);
+		width: span(3 of 12);
 		float:right;
 	}
 }
@@ -543,7 +570,14 @@ h4 {
 		float:right;
 	}
 }
+
+/*
+ ***********************************
+ * Visiting Seattle page 
+ ***********************************
+*/
 //visiting seattle styles
+//mobile
 #seattle{
 	@include span(full);
 	min-height:1550px;
@@ -562,12 +596,21 @@ h4 {
 }
 .seealso {
 	@include span(full);
+	border-top: 1px solid -ts-color($darkblue, 0.25);
+	border-bottom: 1px solid -ts-color($darkblue, 0.25);
+	padding-left:1rem;
+	margin-bottom:1rem;
+	padding-top:0.2rem;
+
 }
 .seealso > ul{
 	color: -ts-color($darkgreen);
 	list-style-type: none;
 	padding-left: 0px;
 	margin-top: 0px;
+}
+.seealso > ul > li{
+	line-height:1.5rem;
 }
 
 //tablet styles
@@ -584,7 +627,9 @@ h4 {
 			padding-left:0.3rem;
 	}
 	.seealso{
-		margin-left: span(1 of 12);
+		@include span(8 of 12);
+		margin-left: span(2 of 12);
+		
 	}
 }
 //desktop styles
@@ -600,17 +645,30 @@ h4 {
 		@include span(3 of 12);
 	}
 	.seealso{
+		@include span(6 of 12);
 		margin-left: span(1 of 12);
 		font-size: 1.1rem;
 	}
 }
+//XL desktop styles
+@include breakpoint(1400px){
+	#seattle{
+	min-height:1370px;
+}
+}
+
+/*
+ ***********************************
+ * Registy page 
+ ***********************************
+*/
 //registry styles
 //mobile styles
 #registry{
 	@include span(full);
 	min-height:500px;
 }
-#registry .sectionContent > ul{
+#registry .sectionContent  ul{
 	list-style:none;
 	padding-left:0;
 }
@@ -622,7 +680,7 @@ h4 {
 	.charityLogo{
 		width: span(6 of 12);
 	}
-	#registry .sectionContent > ul > li{
+	#registry .sectionContent  ul > li{
 		display: inline;
 		&:last-of-type{
 			display:block;
@@ -634,13 +692,20 @@ h4 {
 	.charityLogo{
 		width: span(4 of 12);
 	}
-	#registry .sectionContent > ul > li{
+
+	#registry .sectionContent  ul > li{
 		display: inline;
 		&:last-of-type{
 			display:inline;
 		}
 	}
 }
+
+/*
+ ***********************************
+ * Photos page 
+ ***********************************
+*/
 //photos styles
 //mobile
 #photos{
@@ -694,6 +759,11 @@ h4 {
 	}
 }
 
+/*
+ ***********************************
+ * Footer styles 
+ ***********************************
+*/
 //footer styles
 footer .sectionContent{
 	@include span(full);
