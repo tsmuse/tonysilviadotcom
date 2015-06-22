@@ -446,7 +446,7 @@ h4 {
 }
 .sectionContent > div{
 	@include span(full);
-	margin-bottom:0.5rem;
+	margin-bottom:1.5rem;
 }
 
 //tablet
@@ -531,6 +531,18 @@ h4 {
 	@include span(full);
 	padding-bottom:0.9rem;
 }
+.schedule {
+	@include span(full);
+	//font-size: 0.9rem;
+	border-top: 1px solid -ts-color($darkblue, 0.25);
+	border-bottom: 1px solid -ts-color($darkblue, 0.25);
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+}
+.schedule > ul{
+	list-style-type: none;
+	padding-left: 0px;
+}
 //tablet
 @include breakpoint(700px){
 	#map{
@@ -545,7 +557,17 @@ h4 {
 		padding-left:0.8rem;
 		float:right;
 	}
-
+	.schedule {
+		@include span(5 of 12);
+		font-size: 1.1rem;
+		border-top: 1px solid -ts-color($darkblue, 0.25);
+		border-bottom: 1px solid -ts-color($darkblue, 0.25);
+		margin-top: 0.5rem;
+	}
+	.schedule > ul{
+		list-style-type: none;
+		padding-left: 1rem;
+	}
 }
 //desktop
 @include breakpoint(1000px){
@@ -557,6 +579,22 @@ h4 {
 	#tacos{
 		width: span(3 of 12);
 		float:right;
+	}
+	.schedule {
+	@include span(4 of 12);
+	font-size: 0.95rem;
+	border-top: 1px solid -ts-color($darkblue, 0.25);
+	border-bottom: 1px solid -ts-color($darkblue, 0.25);
+	margin-right: 3rem;
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+	}
+	.schedule > ul{
+		list-style-type: none;
+		padding-left: 0.6rem;
+	}
+	.schedule > ul > li{
+		line-height:1.6rem;
 	}
 }
 //XL desktops
